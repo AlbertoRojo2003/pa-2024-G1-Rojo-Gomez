@@ -70,11 +70,7 @@ public class TicketMachine
     public void printTicket()
     {  
         // Simulate the printing of a ticket.
-        System.out.println("##################");
-        System.out.println("# Ticket");
-        System.out.println("# " + price + " cents.");
-        System.out.println("##################");
-        System.out.println();
+        
         
         if (balance < price) {	
         	int x = price - balance;
@@ -83,12 +79,19 @@ public class TicketMachine
         }
         	
         if (balance > price) {
+        	System.out.println("##################");
+            System.out.println("# Ticket");
+            System.out.println("# " + price + " cents.");
+            System.out.println("##################");
+            System.out.println();
         	balance = balance - price;
         	System.out.println("Le sobran "+balance+" céntimos. Puede solicitar la devolución");
         	total = total + price;
+        	
         }
         
         if (balance == price) {
+        	
         	// Update the total collected with the balance.
             total = total + balance;
             // Clear the balance.
