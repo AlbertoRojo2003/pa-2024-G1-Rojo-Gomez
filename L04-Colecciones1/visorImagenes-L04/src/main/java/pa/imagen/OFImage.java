@@ -4,10 +4,12 @@ import java.awt.Color;
 import java.awt.image.BufferedImage;
 
 /**
- * OFImage is a class that defines an image in OF (Objects First) format.
+ * Clase OfImage
+ * <p>
+ * OFImage es una clase que muestra las imágenes en OF (persona primero).
  * 
- * @author Michael Kölling and David J. Barnes.
- * @version 2.0
+ * @author Alberto Rojo Gómez
+ * 
  */
 public class OFImage extends BufferedImage
 {
