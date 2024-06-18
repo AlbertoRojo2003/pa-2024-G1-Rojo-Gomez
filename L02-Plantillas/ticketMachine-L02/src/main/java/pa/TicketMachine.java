@@ -34,12 +34,18 @@ public class TicketMachine
         total = 0;
    
     }
+    
+    public void refundBalance() {
+    	System.out.println("Dinero devuelto");
+    	balance = 0;
+    }
 
     /**
      * Return the price of a ticket.
      */
     public int getPrice()
     {
+    	System.out.println(price);
         return price;
     }
 
@@ -49,6 +55,7 @@ public class TicketMachine
      */
     public int getBalance()
     {
+    	System.out.println(balance);
         return balance;
     }
 
@@ -68,21 +75,44 @@ public class TicketMachine
      */
     public void printTicket()
     {  
-        // Simulate the printing of a ticket.
-        System.out.println("##################");
-        System.out.println("# Ticket");
-        System.out.println("# " + price + " cents.");
-        System.out.println("##################");
-        System.out.println();
-
-        // Update the total collected with the balance.
-        total = total + balance;
-        // Clear the balance.
-        balance = 0;
+    	int resto;
+    	if(price>balance) {
+    		resto = price - balance;
+    		System.out.println("Introduzca al menos "+resto+" céntimos más");
+    		total = total + balance;
+    	}
+    	else if(price<balance){
+    		resto = balance - price;
+	        // Simulate the printing of a ticket.
+	        System.out.println("##################");
+	        System.out.println("# Ticket");
+	        System.out.println("# " + price + " cents.");
+	        System.out.println("##################");
+	        System.out.println("Le sobran "+resto+" céntimos. Puede solicitar la devolución.");
+	        System.out.println();
+	     // Update the total collected with the balance.
+	        total = total + balance - resto;
+	        // Clear the balance.
+	        balance = resto;
+	        
+        }else {
+        	
+        	System.out.println("##################");
+	        System.out.println("# Ticket");
+	        System.out.println("# " + price + " cents.");
+	        System.out.println("##################");
+	        System.out.println();
+	        // Update the total collected with the balance.
+	        total = total + balance;
+	        // Clear the balance.
+	        balance = 0;
+	        
+        }
     }  
     
     
     public int getTotal() {
+    	System.out.println(total);
         return total;
     }
 }
