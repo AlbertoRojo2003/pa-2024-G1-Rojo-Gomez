@@ -10,37 +10,44 @@ public class Enrollment {
 
     
     public static void main(String[] args) {
-    	System.out.println("Student's list:");
-    	Student monica = new Student("Monica Geller", "A00234");
-    	monica.addCredits(24);
-    	monica.print();
     	
+    	Student monica = new Student("Monica Geller","A00234");
     	Student joe = new Student("Joe Tribiani", "C22044");
-    	joe.addCredits(56);
-    	joe.print();
-    	
     	Student chand = new Student("Chandler Bing", "A12003");
+    	Student rachel = new Student("Rachel Green", "B66003");
+    	
+    	monica.addCredits(24);
+    	joe.addCredits(56);
     	chand.addCredits(6);
+    	rachel.addCredits(12);
+    	
+    	LabClass eli = new LabClass(2);
+    	LabClass jose = new LabClass(1);
+    	
+    	eli.setInstructor("Eli");
+    	jose.setInstructor("Jose Antonio");
+    	
+    	eli.setRoom("Aulario 2");
+    	jose.setRoom("Aulario 2");
+    	
+    	eli.setTime("Miércoles, 15h");
+    	jose.setTime("Miércoles, 17h");
+    	
+    	System.out.println("Students list\n");
+    	monica.print();
+    	joe.print();
     	chand.print();
+    	rachel.print();
     	
-    	Student rach = new Student("Rachel Green", "B66003");
-    	rach.addCredits(12);
-    	rach.print();
+    	System.out.println("\nEnroll students Eli\n");
+    	eli.enrollStudent(monica);
+    	eli.enrollStudent(joe);
+    	System.out.println("\nEnroll students JOse");
+    	jose.enrollStudent(chand);
+    	jose.enrollStudent(rachel);
     	
-    	LabClass clas1 = new LabClass(2);
-    	clas1.setTime("Miércoles, 15h");
-    	clas1.setRoom("Aulario 2");
-    	clas1.enrollStudent(monica);
-    	clas1.enrollStudent(joe);
-    	
-    	LabClass clas2 = new LabClass(2);
-    	clas2.setTime("Miércoles,17h");
-    	clas2.setRoom("Aulario 2");
-    	clas2.enrollStudent(chand);
-    	clas2.enrollStudent(rach);
-    	
-    	clas1.printList();
-    	clas2.printList();
+    	eli.printList();
+    	jose.printList();
       
     }
     
